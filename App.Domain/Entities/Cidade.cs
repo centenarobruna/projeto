@@ -7,6 +7,9 @@ namespace App.Domain.Entities
     {
         [Key]
         public Guid Id { get; set; }
-        public string NomeCidade { get; set; }
+        public string Cep { get; set; }
+        public string Uf { get; set; }
+        public string Nome { get; set; }
+
     }
 }

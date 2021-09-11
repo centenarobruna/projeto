@@ -28,17 +28,28 @@ namespace App.Api.Controllers
             return Json(_service.BuscaPorId(id));
         }
         [HttpPost("Salvar")]
-        public JsonResult Salvar(string nome, int peso, DateTime dataNascimento, bool ativo)
+        public JsonResult Salvar(string nome, int peso, DateTime dataNascimento, bool ativo, Guid CidadeId)
         {
             var obj = new Pessoa
             {
                 Nome = nome,
-                DataNascimento = dataNascimento, 
+                DataNascimento = dataNascimento,
                 Peso = peso,
-                Ativo = ativo
+                Ativo = ativo,
+                CidadeId= CidadeId
             };
             _service.Salvar(obj);
             return Json(true);
         }
+
+        [HttpDelete("Remover")]
+        public JsonResult Remover(Guid id)
+        {
+
+
+            _service.Remover(id);
+            return Json(true);
+        }
     }
 }
+
